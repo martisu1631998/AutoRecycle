@@ -161,6 +161,11 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-"Custom Dataset"/
-"Best Models"/
-"Testing Images"/
+# "Custom Dataset"/
+# "Best Models"/
+# "Testing Images"/
+
+custom_dataset/
+best_models/
+testing_images/
+garbage_classification/
