@@ -166,6 +166,5 @@ cython_debug/
 # "Testing Images"/
 
 custom_dataset/
-best_models/
 testing_images/
 garbage_classification/
