@@ -6,13 +6,13 @@ from torchvision import models
 from torchvision.models import resnet18, EfficientNet_B0_Weights
 
 # Load the model
-model = models.efficientnet_b0(weights=EfficientNet_B0_Weights.IMAGENET1K_V1)
-# model = models.mobilenet_v2()
+# model = models.efficientnet_b0(weights=EfficientNet_B0_Weights.IMAGENET1K_V1)
+model = models.mobilenet_v2()
 model.classifier = nn.Sequential(
     nn.Dropout(0.4),
     nn.Linear(model.classifier[1].in_features, 5)  # Adjusted for 5 classes
 )
-model.load_state_dict(torch.load(r'Best Models/finetuned_v2.pth', map_location=torch.device('cpu')))
+model.load_state_dict(torch.load(r'Best Models/finetuned_student_v2.pth', map_location=torch.device('cpu'), weights_only=True))
 
 model.eval()
 
@@ -61,11 +61,11 @@ for layer in model.modules():
 
 print("Model reduced successfully!")
 # Save pruned model to disk
-torch.save(model.state_dict(), "Reduced Models/half_finetuned_v2.pth")
+torch.save(model.state_dict(), "Reduced Models/half_finetuned_student_v2.pth")
 
 # Compare file sizes
-original_size = os.path.getsize("Best Models/finetuned_v2.pth")
-pruned_size = os.path.getsize("Reduced Models/half_finetuned_v2.pth")
+original_size = os.path.getsize("Best Models/finetuned_student_v2.pth")
+pruned_size = os.path.getsize("Reduced Models/half_finetuned_student_v2.pth")
 
 print(f"Original Model Size: {original_size / 1e6:.2f} MB")
-print(f"Pruned Model Size: {pruned_size / 1e6:.2f} MB")
+print(f"Reduced Model Size: {pruned_size / 1e6:.2f} MB")
