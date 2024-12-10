@@ -168,3 +168,4 @@ cython_debug/
 custom_dataset/
 testing_images/
 garbage_classification/
+.venv3.8
