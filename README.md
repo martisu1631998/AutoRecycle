@@ -1,6 +1,6 @@
 # AutoRecycle
 
-![AutoRecycle Prototype](prototypeFoto.png)
+![AutoRecycle Prototype](WhatsApp Image 2024-12-12 at 23.49.40 (2).jpeg)
 
 ## Overview
 
